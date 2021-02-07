@@ -15,5 +15,4 @@ func Connect() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	log.Printf("Connected to Mongo at %s", config.MongoHost)
 }

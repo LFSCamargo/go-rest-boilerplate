@@ -6,6 +6,7 @@ const defaultPort = ":3000"
 const defaultMongoURI = "mongodb://localhost:27017"
 const defaultMongoDatabase = "boilerplate"
 const defaultJwt = "top secret"
+const defaultEnv = "DEV"
 
 // Config - All the configuration for the application to work
 type Config struct {
@@ -13,6 +14,7 @@ type Config struct {
 	MongoHost     string
 	MongoDatabase string
 	Jwt           string
+	Env           string
 }
 
 // GetConfig - Gets all the env variables
@@ -21,12 +23,14 @@ func GetConfig() Config {
 	database := os.Getenv("MONGO_DATABASE")
 	port := os.Getenv("PORT")
 	jwt := os.Getenv("JWT")
+	environment := os.Getenv("ENV")
 
 	if mongoURI == "" && database == "" && port == "" && jwt == "" {
 		port = defaultPort
 		mongoURI = defaultMongoURI
 		database = defaultMongoDatabase
 		jwt = defaultJwt
+		environment = defaultEnv
 	}
 
 	return Config{
@@ -34,5 +38,6 @@ func GetConfig() Config {
 		MongoHost:     mongoURI,
 		MongoDatabase: database,
 		Jwt:           jwt,
+		Env:           environment,
 	}
 }
