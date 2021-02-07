@@ -1,0 +1,19 @@
+version: "2"
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: "mongodb"
+    ports:
+      - 27017:27017
+  app:
+    build:
+      context: .
+    container_name: "rest-boilerplate"
+    environment:
+      MONGO_URI: "mongodb://mongodb:27017"
+      MONGO_DATABASE: "boilerplate"
+      PORT: ":3000"
+      JWT: "115b66fb-ac68-49b0-8326-773e063844bd"
+      ENV: "DEV"
+    ports:
+      - 3000:3000
