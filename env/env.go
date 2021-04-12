@@ -4,7 +4,7 @@ import "os"
 
 const defaultPort = ":3000"
 const defaultMongoURI = "mongodb://localhost:27017"
-const defaultMongoDatabase = "boilerplate"
+const defaultMongoDatabase = "trivia-api"
 const defaultJwt = "top secret"
 const defaultEnv = "DEV"
 
